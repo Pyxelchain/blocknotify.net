@@ -1,3 +1,5 @@
+#!python
+
 from websocket import create_connection
 import json, time
 
@@ -56,7 +58,8 @@ def listen_to_events(contractAddress, eventName, fromAddress, toAddress):
 
 zeroAddress = "0x0000000000000000000000000000000000000000"
 BUSD = "0x4Fabb145d64652a948d72533023f6E7A623C7C53"
-contract = "0x41fc5635Fc878D13934dC576134c139941b854F9"
+# contract = "0x41fc5635Fc878D13934dC576134c139941b854F9"
+contract = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"  # USDC
 
 # sha3 hashing of event signature
 erc20Transfer = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
@@ -73,4 +76,5 @@ erc721Transfer = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523
 # listen_to_events(BUSD, None, None, None)
 
 # Example 3: get all events in or out of a contract
-listen_to_events(contract, None, None, None)
+# listen_to_events(contract, None, None, None)
+listen_to_events(contract, None, "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640", None)

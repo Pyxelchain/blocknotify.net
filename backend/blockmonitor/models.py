@@ -1,6 +1,12 @@
 from django.db import models
 
 
+# class Notifications(models.Model):
+#     address = models.CharField(max_length=42, unique=True)  # "0x" + 40 hex
+#
+#     def __str__(self):
+#         return self.address + ':' + self.phone
+
 class User(models.Model):
     address = models.CharField(max_length=42, unique=True)  # "0x" + 40 hex
     phone = models.CharField(max_length=13)  # international numbers: 123-123-123-1234
