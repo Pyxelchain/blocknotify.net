@@ -32,9 +32,10 @@ import {
 } from "@chakra-ui/react";
 import DefaultAuth from "layouts/auth/Default";
 // Assets
-import illustration from "assets/img/auth/auth.png";
 import { FaSquareFull } from "react-icons/fa";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+
+import illustration from "assets/img/auth/auth.png";
 
 function SignIn() {
   // Chakra color mode
@@ -102,18 +103,12 @@ function SignIn() {
               openAccountModal,
               openChainModal,
               openConnectModal,
-              authenticationStatus,
               mounted,
             }) => {
               // Note: If your app doesn't use authentication, you
               // can remove all 'authenticationStatus' checks
-              const ready = mounted && authenticationStatus !== "loading";
-              const connected =
-                ready &&
-                account &&
-                chain &&
-                (!authenticationStatus ||
-                  authenticationStatus === "authenticated");
+              const ready = mounted;
+              const connected = ready && account && chain;
               return (
                 <div
                   {...(!ready && {

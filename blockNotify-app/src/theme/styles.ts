@@ -83,13 +83,16 @@ export const globalStyles = {
     global: (props: any) => ({
       body: {
         overflowX: "hidden",
-        bg: mode("secondaryGray.300", "navy.900")(props),
+        background: mode(
+          "linear-gradient(135deg, #E1EFFD 0%, #EFF3F9 100%)",
+          "linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%)"
+        )(props),
         fontFamily: "DM Sans",
         letterSpacing: "-0.5px",
       },
-      input: {
-        color: "gray.700",
-      },
+      // input: {
+      //   color: "gray.700",
+      // },
       html: {
         fontFamily: "DM Sans",
       },

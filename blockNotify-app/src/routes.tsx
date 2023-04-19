@@ -1,10 +1,8 @@
 import { Icon } from "@chakra-ui/react";
-import { MdBarChart, MdPerson, MdHome, MdLock } from "react-icons/md";
+import { MdHome, MdLock } from "react-icons/md";
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
-import Profile from "views/admin/profile";
-import DataTables from "views/admin/dataTables";
 
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
@@ -16,6 +14,7 @@ const routes = [
     path: "/default",
     icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
     component: MainDashboard,
+    showSidebar: true,
   },
   // {
   //   name: "Data Tables",
@@ -31,13 +30,14 @@ const routes = [
   //   icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
   //   component: Profile,
   // },
-  // {
-  //   name: "Sign In",
-  //   layout: "/auth",
-  //   path: "/sign-in",
-  //   icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
-  //   component: SignInCentered,
-  // },
+  {
+    name: "Sign In",
+    layout: "/auth",
+    path: "/sign-in",
+    icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
+    component: SignInCentered,
+    showSidebar: false,
+  },
 ];
 
 export default routes;

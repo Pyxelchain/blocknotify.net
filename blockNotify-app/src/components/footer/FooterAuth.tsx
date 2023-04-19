@@ -8,10 +8,12 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import FixedPlugin from "components/fixedPlugin/fixedPlugin";
+import { IoBookSharp } from "react-icons/io5";
 
 export default function Footer() {
   let textColor = useColorModeValue("gray.400", "white");
-  let linkColor = useColorModeValue({ base: "gray.400", lg: "black" }, "black");
+
   return (
     <Flex
       zIndex="3"
@@ -21,9 +23,9 @@ export default function Footer() {
       }}
       alignItems={{
         base: "center",
-        xl: "start",
+        xl: "center",
       }}
-      justifyContent="space-between"
+      justifyContent={"space-evenly"}
       px={{ base: "30px", md: "0px" }}
       pb="30px"
     >
@@ -42,20 +44,20 @@ export default function Footer() {
         </Text>
       </Text>
 
-      <List display="flex">
+      <List display="flex" alignItems="center">
         <ListItem
           me={{
             base: "20px",
             md: "44px",
           }}
         >
-          <Link
-            fontWeight="500"
-            color={linkColor}
-            href="https://docs.blocknotify.net"
-          >
-            Docs
+          <Link fontWeight="500" href="https://docs.blocknotify.net">
+            <IoBookSharp />
           </Link>
+        </ListItem>
+
+        <ListItem>
+          <FixedPlugin />
         </ListItem>
       </List>
     </Flex>

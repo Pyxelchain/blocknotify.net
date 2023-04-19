@@ -1,63 +1,56 @@
-// Chakra imports
-import { Portal, Box, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text, Link, Image } from "@chakra-ui/react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Footer from "components/footer/FooterAdmin";
-// Layout components
-import Navbar from "components/navbar/NavbarAdmin";
-import Sidebar from "components/sidebar/Sidebar";
-import { SidebarContext } from "contexts/SidebarContext";
-import { useEffect, useState } from "react";
-import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes";
 import { useAccount } from "wagmi";
+import illustration from "assets/img/auth/auth.png";
 
-// Custom Chakra theme
+const Header = () => {
+  // const { connectWallet } = useWallet(); // Add this import if not already present
+
+  return (
+    <Flex alignItems="center" justifyContent="space-between" py={4} px={8}>
+      <HStack spacing={2} alignItems="center">
+        <Text fontSize="2xl" fontWeight="bold" mr={2}>
+          BlockNotify
+        </Text>
+        <Image src={illustration} width="25px" height="25px" />
+      </HStack>
+
+      <HStack spacing={4} alignItems="center">
+        <Link fontWeight="500" href="https://docs.blocknotify.net">
+          Docs
+        </Link>
+        <Link fontWeight="500" href="/">
+          Notify
+        </Link>
+      </HStack>
+
+      <ConnectButton
+        chainStatus={{
+          smallScreen: "none",
+          largeScreen: "icon",
+        }}
+        showBalance={{
+          smallScreen: false,
+          largeScreen: true,
+        }}
+        accountStatus={{
+          smallScreen: "avatar",
+          largeScreen: "full",
+        }}
+      />
+    </Flex>
+  );
+};
+
 export default function Dashboard(props: { [x: string]: any }) {
   const { address } = useAccount();
-
-  const { ...rest } = props;
-  // states and functions
-  const [fixed] = useState(false);
-  const [toggleSidebar, setToggleSidebar] = useState(false);
 
   // functions for changing the states from components
   const getRoute = () => {
     return window.location.pathname !== "/admin/full-screen-maps";
-  };
-
-  const getActiveRoute = (routes: RoutesType[]): string => {
-    let activeRoute = "Default Brand Text";
-    for (let i = 0; i < routes.length; i++) {
-      if (
-        window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
-      ) {
-        return routes[i].name;
-      }
-    }
-    return activeRoute;
-  };
-
-  const getActiveNavbar = (routes: RoutesType[]): boolean => {
-    let activeNavbar = false;
-    for (let i = 0; i < routes.length; i++) {
-      if (
-        window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
-      ) {
-        return routes[i].secondary;
-      }
-    }
-    return activeNavbar;
-  };
-
-  const getActiveNavbarText = (routes: RoutesType[]): string | boolean => {
-    let activeNavbar = false;
-    for (let i = 0; i < routes.length; i++) {
-      if (
-        window.location.href.indexOf(routes[i].layout + routes[i].path) !== -1
-      ) {
-        return routes[i].name;
-      }
-    }
-    return activeNavbar;
   };
 
   const getRoutes = (routes: RoutesType[]): any => {
@@ -78,71 +71,27 @@ export default function Dashboard(props: { [x: string]: any }) {
 
   document.documentElement.dir = "ltr";
 
-  const { onOpen } = useDisclosure();
-
   if (!address) {
     return <Redirect from="/admin" to="/auth" />;
   }
 
   return (
-    <Box>
-      <SidebarContext.Provider
-        value={{
-          toggleSidebar,
-          setToggleSidebar,
-        }}
-      >
-        <Sidebar routes={routes} display="none" {...rest} />
+    <Flex direction="column" minHeight="100vh">
+      <Header />
 
-        <Box
-          float="right"
-          minHeight="100vh"
-          height="100%"
-          overflow="auto"
-          position="relative"
-          maxHeight="100%"
-          w={{ base: "100%", xl: "calc( 100% - 290px )" }}
-          maxWidth={{ base: "100%", xl: "calc( 100% - 290px )" }}
-          transition="all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)"
-          transitionDuration=".2s, .2s, .35s"
-          transitionProperty="top, bottom, width"
-          transitionTimingFunction="linear, linear, ease"
-        >
-          <Portal>
-            <Box>
-              <Navbar
-                onOpen={onOpen}
-                logoText={"Horizon UI Dashboard PRO"}
-                brandText={getActiveRoute(routes)}
-                secondary={getActiveNavbar(routes)}
-                message={getActiveNavbarText(routes)}
-                fixed={fixed}
-                {...rest}
-              />
-            </Box>
-          </Portal>
+      <Box flexGrow={1} py={6} px={8}>
+        {getRoute() ? (
+          <Box w="100%">
+            <Switch>
+              {getRoutes(routes)}
 
-          {getRoute() ? (
-            <Box
-              mx="auto"
-              p={{ base: "20px", md: "30px" }}
-              pe="20px"
-              minH="100vh"
-              pt="50px"
-            >
-              <Switch>
-                {getRoutes(routes)}
-
-                <Redirect from="/" to="/admin/default" />
-              </Switch>
-            </Box>
-          ) : null}
-
-          <Box>
-            <Footer />
+              <Redirect from="/" to="/admin/default" />
+            </Switch>
           </Box>
-        </Box>
-      </SidebarContext.Provider>
-    </Box>
+        ) : null}
+      </Box>
+
+      <Footer />
+    </Flex>
   );
 }

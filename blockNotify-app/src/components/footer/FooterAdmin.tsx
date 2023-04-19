@@ -8,6 +8,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import FixedPlugin from "components/fixedPlugin/fixedPlugin";
 
 export default function Footer() {
   const textColor = useColorModeValue("gray.400", "white");
@@ -18,42 +19,26 @@ export default function Footer() {
         base: "column",
         xl: "row",
       }}
-      alignItems={{
-        base: "center",
-        xl: "start",
-      }}
+      alignItems="center"
       justifyContent="space-between"
       px={{ base: "30px", md: "50px" }}
-      pb="30px"
+      py={{ base: "20px", md: "30px" }}
+      position="fixed"
+      bottom="0"
+      left="0"
+      width="100%"
     >
-      <Text
-        color={textColor}
-        textAlign={{
-          base: "center",
-          xl: "start",
-        }}
-        mb={{ base: "20px", xl: "0px" }}
-      >
-        {" "}
-        &copy; {new Date().getFullYear()}
-        <Text as="span" fontWeight="500" ms="4px">
-          BlockNotify. All Rights Reserved.
-        </Text>
+      <Text color={textColor} fontWeight="500" mb={{ base: "10px", xl: "0" }}>
+        &copy; {new Date().getFullYear()} BlockNotify. All Rights Reserved.
       </Text>
-      <List display="flex">
-        <ListItem
-          me={{
-            base: "20px",
-            md: "44px",
-          }}
-        >
-          <Link
-            fontWeight="500"
-            color={textColor}
-            href="https://simmmple.com/terms-of-service"
-          >
+      <List display="flex" alignItems="center">
+        <ListItem me={{ base: "20px", md: "44px" }}>
+          <Link fontWeight="500" color={textColor} href="https://google.com">
             Terms of Use
           </Link>
+        </ListItem>
+        <ListItem>
+          <FixedPlugin />
         </ListItem>
       </List>
     </Flex>
