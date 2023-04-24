@@ -1,6 +1,6 @@
 {
   "homepage": "https://blocknotify.net",
-  "name": "BlockNotify",
+  "name": "blocknotify",
   "version": "1",
   "private": true,
   "dependencies": {
@@ -12,7 +12,6 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@rainbow-me/rainbowkit": "^0.11.1",
-    "@tanstack/react-table": "^8.5.13",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -20,19 +19,12 @@
     "@types/node": "^12.20.55",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "apexcharts": "^3.35.2",
     "axios": "^1.3.4",
     "ethers": "^5.7.2",
-    "framer-motion": "^4.1.17",
     "react": "^17.0.2",
-    "react-apexcharts": "^1.4.0",
-    "react-calendar": "^3.7.0",
-    "react-custom-scrollbars-2": "^4.2.1",
     "react-dom": "17.0.2",
-    "react-dropzone": "^12.0.4",
     "react-env": "^0.0.0",
     "react-icons": "^4.3.1",
-    "react-is": "^18.0.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
     "stylis": "^4.1.1",
@@ -68,7 +60,6 @@
     ]
   },
   "devDependencies": {
-    "@types/react-calendar": "^3.5.2",
     "@types/react-router-dom": "^5.3.3",
     "gh-pages": "^3.2.3"
   }

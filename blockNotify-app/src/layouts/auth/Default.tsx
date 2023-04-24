@@ -45,8 +45,8 @@ function AuthIllustration(props: {
             align="end"
             w="100%"
             h="100%"
-            // bgSize="contain"
-            // bgPosition="50%"
+            bgSize="contain"
+            bgPosition="50%"
             bgRepeat={"no-repeat"}
             // position="absolute"
             borderBottomLeftRadius={{ lg: "120px", xl: "200px" }}
