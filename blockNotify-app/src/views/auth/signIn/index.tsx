@@ -28,16 +28,18 @@ import {
   Heading,
   Icon,
   Text,
-  useColorModeValue,
+  useColorModeValue, useImage,
 } from "@chakra-ui/react";
 import DefaultAuth from "layouts/auth/Default";
 // Assets
 import { FaSquareFull } from "react-icons/fa";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-import illustration from "assets/img/auth/auth.png";
+import light from "assets/img/auth/auth.png";
+import dark from "assets/img/auth/auth2.png";
 
 function SignIn() {
+  const illustration = useColorModeValue(light, dark);
   // Chakra color mode
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = "gray.400";

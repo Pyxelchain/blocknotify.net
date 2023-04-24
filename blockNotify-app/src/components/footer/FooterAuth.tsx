@@ -8,7 +8,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import FixedPlugin from "components/fixedPlugin/fixedPlugin";
+import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 import { IoBookSharp } from "react-icons/io5";
 
 export default function Footer() {

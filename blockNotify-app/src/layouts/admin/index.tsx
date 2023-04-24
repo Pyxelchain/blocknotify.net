@@ -1,12 +1,14 @@
-import { Box, Flex, HStack, Text, Link, Image } from "@chakra-ui/react";
+import {Box, Flex, HStack, Text, Link, Image, useColorModeValue} from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Footer from "components/footer/FooterAdmin";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes";
 import { useAccount } from "wagmi";
-import illustration from "assets/img/auth/auth.png";
+import light from "assets/img/auth/auth.png";
+import dark from "assets/img/auth/auth2.png";
 
 const Header = () => {
+    const illustration = useColorModeValue(light, dark);
   // const { connectWallet } = useWallet(); // Add this import if not already present
 
   return (

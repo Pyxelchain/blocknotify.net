@@ -8,7 +8,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import FixedPlugin from "components/fixedPlugin/fixedPlugin";
+import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 
 export default function Footer() {
   const textColor = useColorModeValue("gray.400", "white");
