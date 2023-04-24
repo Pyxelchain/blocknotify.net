@@ -12,7 +12,7 @@ const Header = () => {
   // const { connectWallet } = useWallet(); // Add this import if not already present
 
   return (
-    <Flex alignItems="center" justifyContent="space-between" py={4} px={8}>
+    <Flex alignItems="center" py={4} px={8}>
       <HStack spacing={2} alignItems="center">
         <Text fontSize="2xl" fontWeight="bold" mr={2}>
           BlockNotify
@@ -20,29 +20,31 @@ const Header = () => {
         <Image src={illustration} width="25px" height="25px" />
       </HStack>
 
-      <HStack spacing={4} alignItems="center">
+      <HStack spacing={4} alignItems="center" ml={{ base: 2, md: 4, lg: 10 }}>
+        <Link fontWeight="500" href="/">
+          Notifier
+        </Link>
         <Link fontWeight="500" href="https://docs.blocknotify.net">
           Docs
         </Link>
-        <Link fontWeight="500" href="/">
-          Notify
-        </Link>
       </HStack>
 
-      <ConnectButton
-        chainStatus={{
-          smallScreen: "none",
-          largeScreen: "icon",
-        }}
-        showBalance={{
-          smallScreen: false,
-          largeScreen: true,
-        }}
-        accountStatus={{
-          smallScreen: "avatar",
-          largeScreen: "full",
-        }}
-      />
+      <HStack spacing={4} alignItems="center" ml="auto">
+        <ConnectButton
+          chainStatus={{
+            smallScreen: "none",
+            largeScreen: "icon",
+          }}
+          showBalance={{
+            smallScreen: false,
+            largeScreen: true,
+          }}
+          accountStatus={{
+            smallScreen: "avatar",
+            largeScreen: "full",
+          }}
+        />
+      </HStack>
     </Flex>
   );
 };

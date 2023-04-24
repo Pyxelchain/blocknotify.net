@@ -23,6 +23,7 @@
 // Chakra imports
 import {
   Box,
+  Image,
   Button,
   Flex,
   Heading,
@@ -140,7 +141,14 @@ function SignIn() {
                           _focus={googleActive}
                           onClick={openConnectModal}
                         >
-                          <Icon as={FaSquareFull} w="20px" h="20px" me="10px" />
+                          {/* <Icon as={illustration} w="20px" h="20px" me="10px" /> */}
+                          <Image
+                            src={illustration}
+                            alt="logo"
+                            w="20px"
+                            h="20px"
+                            me="10px"
+                          />
                           Sign in with Ethereum
                         </Button>
                       );
