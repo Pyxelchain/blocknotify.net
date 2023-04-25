@@ -213,7 +213,7 @@ export default function Default(props: {
           // addMessage("Success! A code was sent to the phone number.", 'success')
           setVerifyResponse(true);
           toast({
-            title: "The phone number was succesfully verified",
+            title: "The phone number was successfully verified",
             status: "success",
             duration: 5000,
             isClosable: true,
@@ -283,7 +283,7 @@ export default function Default(props: {
             Event Notifier
           </Heading>
           <Text fontSize={{ base: "sm" }} mt={2}>
-            Verify your phone to enable on-chain event notifications
+            Your phone number is registered with this account and we will notify you of any ERC-20 transfers to or from this account.
           </Text>
         </Box>
         {startContent}
