@@ -23,7 +23,7 @@ export default function Footer() {
       justifyContent="space-between"
       px={{ base: "30px", md: "50px" }}
       py={{ base: "20px", md: "30px" }}
-      position="fixed"
+      // position="fixed"
       bottom="0"
       left="0"
       width="100%"
